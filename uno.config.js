@@ -22,7 +22,8 @@ export default defineConfig({
     [/^lineHt-(\d+)$/, match => ({ 'line-height': `${match[1]}px` })],
   ],
   shortcuts: {
-    btn: 'border-brand-gn border border-solid bg-brand-gnLight text-black text-18px lineHt-20 py-6px px-12px' 
+    btn: 'border-brand-gn border border-solid bg-brand-gnLight text-black text-18px lineHt-20 py-6px px-12px',
+    bottomMiddle: 'absolute bottom-8px left-50% translate-x--50%'
   },  
   theme: {
     colors: {
