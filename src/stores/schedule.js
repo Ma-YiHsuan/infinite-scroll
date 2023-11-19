@@ -7,11 +7,9 @@ export const useScheduleStore = defineStore('schedule', () => {
   const setSchedules = () => {
     fetch('http://192.168.50.173:3000/api/moreData')
       .then((res) => {
-        // console.log('RESOLVED!!', res)
         return res.json()
       })
       .then((data) => {
-        // console.log(data)
         const list = data.data
         schedules.value.push(...list)
       })

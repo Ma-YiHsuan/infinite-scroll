@@ -47,12 +47,6 @@ const updateSchedules = async () => {
   await store.setSchedules()
   transY.value = 100
   opy.value = 0
-//   if (!first) {
-//     scrollCont.value.scrollTo({
-//       bottom: 0,
-//       behavior: 'smooth',
-//     })
-//   }
 }
 
 const mySchedules = computed(() => store.getSchedules)
@@ -68,35 +62,33 @@ updateSchedules()
         <p>描述： {{ item.dec }}</p>
       </div>
     </div>
-    <div ref="loadDOM" class="bottomMiddle z-90" :style="transCompute">加載中...</div>
+    <div ref="loadDOM" class="bottomMiddle z-90 loading_circle" :style="transCompute">加載</div>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .schedule__box {
-  position: absolute;
-  bottom: 0;
-  /* height: calc(100% - 40% - 38px - 28px); */
-  height: calc(100% - 338px);
+  // position: absolute;
+  // bottom: 0;
+  min-height: calc(100% - 45vh);
+  max-height: 100%;
+  height: 50%;
+  padding: 6px;
+  // overflow-y: auto;
   width: 100%;
+  .scroll__cont {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+  }
+}S
+.loading_circle {
+  padding: 8px 0px;
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 3px 3px 8px 0px #847D7C;
+  background-color: #fff;
 }
-.scroll__cont {
-  height: 100%;
-  width: 100%;
-  padding: 6px 6px 0 6px;
-  overflow-y: scroll;
-}
-
-/* .v-enter-from,
-.v-leave-to {
-  transform: translate(-50%, 100%);
-}
-.v-enter-to,
-.v-leave-from {
-  transform: translate(-50%, 0);
-}
-.v-enter-active,
-.v-leave-active {
-    transition: all 2s ease-in-out;
-} */
 </style>

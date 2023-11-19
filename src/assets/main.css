@@ -1,10 +1,16 @@
 
 body {
-  /* height: 100vh; */
   overflow: hidden;
   font-family: 'Roboto', 'Noto Sans TC', sans-serif;
 }
 
-/* #app {
- height: 100%; 
-} */
+:root {
+  --brand-pk: #fec5bb;
+  --brand-pkLight: #fcd5ce;
+  --brand-pkExlight: #fae1dd;
+  --brand-gn: #6b9080;
+  --brand-gnLight: #e8e8e4;
+  --cream: #f8edeb;
+  --black: #343a40;
+  --gray: #ced4da;
+}
