@@ -1,10 +1,12 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useScheduleStore } from '@/stores/schedule'
+import { useCalendarStore } from '@/stores/calendar'
 const scrollCont = ref(null)
 const loadDOM = ref(null)
 const isLoading = ref(false)
 const store = useScheduleStore()
+const calStore = useCalendarStore()
 
 const time = ref(0)
 const startY = ref(0)
@@ -52,10 +54,23 @@ const updateSchedules = async () => {
 const mySchedules = computed(() => store.getSchedules)
 
 updateSchedules()
+
+const scheduleHight = computed(() => {
+  return {
+    'h-55vh': calStore.isOpened,
+    'h-85vh': calStore.isClosed,
+  }
+})
 </script>
 
 <template>
-  <div class="schedule__box" @touchstart="startHandler" @touchend="endHandler" @touchmove="moveHandler">
+  <div
+    :class="scheduleHight"
+    class="schedule__box bg-brand-pkExlight"
+    @touchstart="startHandler"
+    @touchend="endHandler"
+    @touchmove="moveHandler"
+  >
     <div class="scroll__cont" ref="scrollCont">
       <div v-for="(item, index) of mySchedules" :key="index">
         <p>標題： {{ item.title }}</p>
@@ -68,27 +83,21 @@ updateSchedules()
 
 <style scoped lang="scss">
 .schedule__box {
-  // position: absolute;
-  // bottom: 0;
-  min-height: calc(100% - 45vh);
-  max-height: 100%;
-  height: 50%;
   padding: 6px;
-  // overflow-y: auto;
   width: 100%;
   .scroll__cont {
     height: 100%;
     width: 100%;
     overflow-y: auto;
   }
-}S
+}
 .loading_circle {
   padding: 8px 0px;
   text-align: center;
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  box-shadow: 3px 3px 8px 0px #847D7C;
+  box-shadow: 3px 3px 8px 0px #847d7c;
   background-color: #fff;
 }
 </style>

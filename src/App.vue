@@ -1,6 +1,6 @@
 <script setup>
-import Calendar from './components/Calendar.vue'
-import ScheduleList from './components/ScheduleList.vue'
+import CalendarView from '@/components/CalendarView.vue'
+import ScheduleList from '@/components/ScheduleList.vue'
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import ScheduleList from './components/ScheduleList.vue'
     </div>
   </nav>
   <div class="flex flex-col content">    
-    <Calendar />
+    <CalendarView />
     <ScheduleList />
   </div>
 </template>
